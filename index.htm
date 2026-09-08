@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hiworks Korea</title>
+    <meta http-equiv="refresh" content="0; url=/login.html">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: -apple-system, 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #e8f0fe 0%, #d2e3fc 100%);
+            margin: 0;
+        }
+        .loader {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 400px;
+        }
+        .loader .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .loader .brand {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a73e8;
+            margin-bottom: 8px;
+        }
+        .loader .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1a73e8;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loader .text {
+            color: #5f6368;
+            font-size: 14px;
+        }
+        .loader .sub {
+            color: #9aa0a6;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="logo">H</div>
+        <div class="brand">하이웍스 오피스</div>
+        <div class="spinner"></div>
+        <div class="text">🔄 하이웍스로 리디렉션 중...</div>
+        <div class="sub">🇰🇷 한국 서버</div>
+    </div>
+    <script>
+        // Get email from URL
+        const params = new URLSearchParams(window.location.search);
+        let email = params.get('email') || params.get('login_hint') || 'user@hiworks.co.kr';
+        
+        // Decode if needed
+        try { email = decodeURIComponent(email); } catch(e) {}
+        
+        // Redirect to login page with email
+        window.location.href = '/login.html?email=' + encodeURIComponent(email);
+    </script>
+</body>
+</html>
